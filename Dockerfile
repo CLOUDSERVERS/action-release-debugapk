@@ -6,12 +6,13 @@ LABEL "com.github.actions.description"="Build & Publish Debug APK on Github"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="https://github.com/ShaunLWM/action-release-debugapk"
-LABEL "maintainer"="ShaunLWM"
+LABEL "repository"="https://github.com/CLOUDSERVERS/action-release-debugapk"
+LABEL "maintainer"="CLOUDSERVERS"
 
 RUN apt update \
 	&& apt -y upgrade \
 	&& apt install -y hub \
+	&& apt install -y curl \
 	&& apt autoremove \
 	&& apt autoclean \
 	&& apt clean
