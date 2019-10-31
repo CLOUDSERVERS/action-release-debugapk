@@ -13,7 +13,7 @@ RUN apt update \
 	&& apt -y upgrade \
 	&& apt install -y hub \
 	&& apt install -y bc \
-        && apt install -y tr \
+        && apt install -y apt-utils \
 	&& apt autoremove \
 	&& apt autoclean \
 	&& apt clean
