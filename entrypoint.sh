@@ -2,5 +2,8 @@
 
 hub checkout master
 SEEK=`date '+%Y%m%d%H%M%S'`
-VERSION=`echo "obase=16;${SEEK}"|bc`
-hub release create -a ./${APP_FOLDER}/build/outputs/apk/debug/app-debug.apk -m "${RELEASE_TITLE_HEAD} ${VERSION} ${RELEASE_TITLE_FOOT}" "Automatic generated" 
+VERSION_NAME=`echo "obase=16;${SEEK}"|bc|tr '[:upper:]' '[:lower:]'`
+VERSION_CODE=`date '%Y%m%d'`
+sed -i 's/versionCode.*/versionCode ${VERSION_CODE}/1' ./app/build.gradle
+sed -i 's/versionName.*/versionName "${VERSION_NAME}"/1' ./app/build.gradle
+hub release create -a ./${APP_FOLDER}/build/outputs/apk/debug/app-debug.apk -m "${RELEASE_TITLE_HEAD} ${VERSION_NAME} ${RELEASE_TITLE_FOOT}" "Automatic generated"
